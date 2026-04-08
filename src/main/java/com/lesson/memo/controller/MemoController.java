@@ -143,7 +143,7 @@ public class MemoController {
         if (keyword == null || keyword.isBlank()) {
             memos = memoRepository.findAll();
         } else {
-            memos = memoRepository.findByTitleContaining(keyword);
+            memos = memoRepository.findByTitleContainingOrContentContaining(keyword, keyword);
         }
 
         memos.sort(Comparator.comparingInt(m -> m.getPriority().ordinal()));
