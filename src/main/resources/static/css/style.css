@@ -49,6 +49,16 @@ body {
   margin-bottom: 2rem;
 }
 
+.header-right {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.header-right .logout-form {
+    margin-left: 1rem;
+}
+
 .app-title {
   font-size: 2.25rem;
   font-weight: 700;
