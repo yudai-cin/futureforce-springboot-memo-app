@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ユーザー登録</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="app-title">ユーザー登録</h1>
+        </div>
+        <div class="note-form-card">
+            <form th:action="@{/admin/signup}" th:object="${admin}" method="post">
+                <div class="form-group">
+                    <label>姓：</label>
+                    <input type="text" th:field="*{lastName}">
+                    <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label>名：</label>
+                    <input type="text" th:field="*{firstName}">
+                    <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label>メールアドレス：</label>
+                    <input type="email" th:field="*{email}">
+                    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label>パスワード：</label>
+                    <input type="password" th:field="*{password}">
+                    <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error-message"></div>
+                </div>
+                <div class="form-button-container">
+                    <button type="submit" class="btn btn-primary">登録</button>
+                    <a th:href="@{/admin/signin}" class="btn btn-outline">ログイン画面へ</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
